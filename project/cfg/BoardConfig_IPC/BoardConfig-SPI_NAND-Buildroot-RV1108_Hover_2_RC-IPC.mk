@@ -11,10 +11,10 @@ export RK_CHIP=rv1106
 export RK_APP_TYPE=RKIPC_RV1106
 
 # Config CMA size in environment
-export RK_BOOTARGS_CMA_SIZE="66M"
+export RK_BOOTARGS_CMA_SIZE="24M"
 
 # Kernel dts
-export RK_KERNEL_DTS=rv1106g-luckfox-pico-pro-max.dts
+export RK_KERNEL_DTS=rv1108-hover2-rc.dts
 
 #################################################
 #	BOOT_MEDIUM
@@ -24,7 +24,7 @@ export RK_KERNEL_DTS=rv1106g-luckfox-pico-pro-max.dts
 export RK_BOOT_MEDIUM=spi_nand
 
 # Uboot defconfig fragment
-export RK_UBOOT_DEFCONFIG_FRAGMENT=rk-sfc.config
+export RK_UBOOT_DEFCONFIG_FRAGMENT=rk-nand.config
 
 # specify post.sh for delete/overlay files
 # export RK_PRE_BUILD_OEM_SCRIPT=rv1103-spi_nor-post.sh
@@ -35,7 +35,7 @@ export RK_UBOOT_DEFCONFIG_FRAGMENT=rk-sfc.config
 #       <partdef> := <size>[@<offset>](part-name)
 # Note:
 #   If the first partition offset is not 0x0, it must be added. Otherwise, it needn't adding.
-export RK_PARTITION_CMD_IN_ENV="256K(env),256K@256K(idblock),512K(uboot),4M(boot),30M(oem),10M(userdata),210M(rootfs)"
+export RK_PARTITION_CMD_IN_ENV="256K(env),256K@256K(idblock),512K(uboot),4M(boot),30M(oem),10M(userdata),80M(rootfs)"
 
 # config partition's filesystem type (squashfs is readonly)
 # emmc:    squashfs/ext4
@@ -78,10 +78,10 @@ export RK_TOOLCHAIN_CROSS=arm-rockchip830-linux-uclibcgnueabihf
 export RK_MISC=wipe_all-misc.img
 
 # Uboot defconfig
-export RK_UBOOT_DEFCONFIG=luckfox_rv1106_uboot_defconfig
+export RK_UBOOT_DEFCONFIG=hover2_rv1108_uboot_defconfig
 
 # Kernel defconfig
-export RK_KERNEL_DEFCONFIG=luckfox_rv1106_linux_defconfig
+export RK_KERNEL_DEFCONFIG=hover2_rv1108_linux_defconfig
 
 # Config sensor IQ files
 # RK_CAMERA_SENSOR_IQFILES format:
@@ -95,7 +95,7 @@ export RK_CAMERA_SENSOR_CAC_BIN="CAC_sc4336_OT01_40IRC_F16"
 #export RK_CAMERA_SENSOR_CAC_BIN="CAC_sc4336_OT01_40IRC_F16 CAC_sc530ai_CMK-OT2115-PC1_30IRC-F16"
 
 # build ipc web backend
-#export RK_APP_IPCWEB_BACKEND=y
+# export RK_APP_IPCWEB_BACKEND=y
 
 # enable install app to oem partition
 export RK_BUILD_APP_TO_OEM_PARTITION=y

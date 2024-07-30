@@ -2257,6 +2257,7 @@ cd $PROJECT_TOP_DIR
 unset_board_config_all
 if [ "$1" = "lunch" ]; then
 	build_select_board LUNCH-FORCE
+	exit 0
 fi
 if [ ! -e "$BOARD_CONFIG" ]; then
 	build_select_board

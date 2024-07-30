@@ -5,6 +5,8 @@
 INSTALL_TARGET_DIR=
 toolchain_cross=`pwd`
 toolchain_cross=$(basename ${toolchain_cross})
+export ARCH=arm
+
 if [ -n "$1" ]; then
 	if [ -d "$1" ]; then
 		INSTALL_TARGET_DIR=$1
@@ -42,6 +44,7 @@ case $selectopt in
                 eval $cmdsed
                 echo "export PATH=$build_toolchain_path:\$PATH" >> $HOME/.bash_profile
                 source $HOME/.bash_profile
+                
                 ;;
         *)
                 echo "Please check input."
