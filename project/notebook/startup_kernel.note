@@ -1,0 +1,699 @@
+/ # dmesg
+[    0.000000] Booting Linux on physical CPU 0xf00
+[    0.000000] Linux version 3.10.104+ -z -gb121a94a (docker@0a450023097c) (gcc version 4.6.x-google 20120106 (prerelease) (GCC) ) #25 SMP PREEMPT Tue May 19 22:32:17 CST 2020
+[    0.000000] cpu_do_switch_mm is 0xc0018928
+[    0.000000] CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] Machine: Rockchip RV1108, model: Rockchip RV1108 MINIEVB V10
+[    0.000000] rockchip_ion_reserve
+[    0.000000] ion heap(carveout): base(62000000) size(100000) align(0)
+[    0.000000] ion heap(cma): base(0) size(4400000) align(0)
+[    0.000000] ion heap(vmalloc): base(0) size(0) align(0)
+[    0.000000] ion_reserve: carveout reserved base 62000000 size 1048576
+[    0.000000] cma: CMA: reserved 68 MiB at 63c00000
+[    0.000000] ion_reserve: cma reserved base 63c00000 size 71303168
+[    0.000000] cma: CMA: reserved 4 MiB at 63800000
+[    0.000000] Memory policy: ECC disabled, Data cache writealloc
+[    0.000000] On node 0 totalpages: 32768
+[    0.000000] free_area_init_node: node 0, pgdat c072a6c0, node_mem_map c07e0000
+[    0.000000]   Normal zone: 256 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 32768 pages, LIFO batch:7
+[    0.000000] PERCPU: Embedded 9 pages/cpu @c0928000 s12672 r8192 d16000 u36864
+[    0.000000] pcpu-alloc: s12672 r8192 d16000 u36864 alloc=9*4096
+[    0.000000] pcpu-alloc: [0] 0
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 32512
+[    0.000000] Kernel command line: user_debug=31 rockchip_jtag noinitrd root=/dev/mtdblock3 rootfstype=squashfs
+[    0.000000] rockchip jtag enabled
+[    0.000000] PID hash table entries: 512 (order: -1, 2048 bytes)
+[    0.000000] Dentry cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Inode-cache hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.000000] Memory: 128MB = 128MB total
+[    0.000000] Memory: 46552k/46552k available, 84520k reserved, 0K highmem
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+[    0.000000]     vmalloc : 0xc8800000 - 0xff000000   ( 872 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xc8000000   ( 128 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc055dcfc   (5464 kB)
+[    0.000000]       .init : 0xc055e000 - 0xc06d1180   (1485 kB)
+[    0.000000]       .data : 0xc06d2000 - 0xc072d418   ( 366 kB)
+[    0.000000]        .bss : 0xc072d418 - 0xc07df6d0   ( 713 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000]  RCU dyntick-idle grace-period acceleration is enabled.
+[    0.000000]  RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=1.
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] GIC CPU mask not found - kernel will fail to boot.
+[    0.000000] GIC CPU mask not found - kernel will fail to boot.
+[    0.000000] rk_clk_tree_init start!
+[    0.000000] rk_get_uboot_display_flag: uboot_logo_on = 0
+[    0.000000] rkclk_init_clks: cnt_parent = 7
+[    0.000000] rkclk_init_clks: cnt_rate = 28
+[    0.000000] rkclk: can't get a available nume and deno
+[    0.000000] rkclk: clk_frac_div name=uart2_frac can't get rate=464062
+[    0.000000] rkclk: can't get a available nume and deno
+[    0.000000] rkclk: clk_frac_div name=uart1_frac can't get rate=464062
+[    0.000000] rkclk: can't get a available nume and deno
+[    0.000000] rkclk: clk_frac_div name=uart0_frac can't get rate=464062
+[    0.000000] rkclk: can't get a available nume and deno
+[    0.000000] rkclk: clk_frac_div name=i2s2_frac can't get rate=464062
+[    0.000000] rkclk: can't get a available nume and deno
+[    0.000000] rkclk: clk_frac_div name=i2s1_frac can't get rate=464062
+[    0.000000] rkclk: can't get a available nume and deno
+[    0.000000] rkclk: clk_frac_div name=i2s0_frac can't get rate=464062
+[    0.000000] Architected cp15 timer(s) running at 24.00MHz (phys).
+[    0.000000] Switching to timer-based delay loop
+[    0.000000] sched_clock: ARM arch timer >56 bits at 24000kHz, resolution 41ns
+[    0.000000] process version: 7
+[    0.000000] channel:0, lkg:4
+[    0.000000] target-temp:95
+[    0.000000] channel:0, lkg:4
+[    0.000000] channel:0, lkg:4
+[    0.000000] sched_clock: 32 bits at 100 Hz, resolution 10000000ns, wraps every 4294967286ms
+[    2.184558] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=240000)
+[    2.184592] pid_max: default: 32768 minimum: 301
+[    2.184848] Mount-cache hash table entries: 512
+[    2.185877] CPU: Testing write buffer coherency: ok
+[    2.186293] /cpus/cpu@f00 missing clock-frequency property
+[    2.186421] CPU0: thread -1, cpu 0, socket 15, mpidr 80000f00
+[    2.186468] Setting up static identity map for 0xc0452480 - 0xc04524d8
+[    2.187640] last_log: 0x63080000 map to 0xc8814000 and copy to 0xc8836000, size 0x20000 early 0x1513 (version 3.1)
+[    2.241244] Brought up 1 CPUs
+[    2.241279] SMP: Total of 1 processors activated (48.00 BogoMIPS).
+[    2.241296] CPU: All CPU(s) started in SVC mode.
+[    2.242287] devtmpfs: initialized
+[    2.248314] VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5
+[    2.249510] pinctrl core: initialized pinctrl subsystem
+[    2.250026] regulator-dummy: no parameters
+[    2.277775] NET: Registered protocol family 16
+[    2.279379] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    2.280097] ion_snapshot: 0x63158000 map to 0xc8857000 and copy to 0xc07b82b4 (version 0.1)
+[    2.280309] Registered FIQ tty driver
+[    2.282423] console [ttyFIQ0] enabled
+[    2.282800] Registered fiq debugger ttyFIQ0
+[    2.287732] syscon 10300000.syscon: regmap [mem 0x10300000-0x10300fff] registered
+[    2.288148] syscon 20060000.syscon: regmap [mem 0x20060000-0x20060fff] registered
+[    2.288530] syscon 202a0000.syscon: regmap [mem 0x202a0000-0x202a0fff] registered
+[    2.290658] syscon 20200000.syscon: regmap [mem 0x20200000-0x20200fff] registered
+[    2.306866] gpiochip_add: registered GPIOs 0 to 31 on device: gpio0
+[    2.307018] gpiochip_add: registered GPIOs 32 to 63 on device: gpio1
+[    2.307157] gpiochip_add: registered GPIOs 64 to 95 on device: gpio2
+[    2.307277] gpiochip_add: registered GPIOs 96 to 127 on device: gpio3
+[    2.373746] bio: create slab <bio-0> at 0
+[    2.375232] mpp rkvenc_srv.9: mpp_probe enter
+[    2.375319] mpp rkvenc_srv.9: init success
+[    2.376219] usbcore: registered new interface driver usbfs
+[    2.376340] usbcore: registered new interface driver hub
+[    2.378214] usbcore: registered new device driver usb
+[    2.380044] of_get_named_gpio_flags exited with status 117
+[    2.380119] of_get_named_gpio_flags: can't parse gpios property
+[    2.380208] rv1108-dwc-control-usb dwc-control-usb.12: no hclk_usb_peri clk specified
+[    2.383245] rk3x-i2c 20000000.i2c: Initialized RK3xxx I2C bus at c886e000
+[    2.385173] rk3x-i2c 10240000.i2c: Initialized RK3xxx I2C bus at c8870000
+[    2.385867] rk3x-i2c 10250000.i2c: Initialized RK3xxx I2C bus at c8872000
+[    2.386544] rk3x-i2c 10260000.i2c: Initialized RK3xxx I2C bus at c8874000
+[    2.387208] media: Linux media interface: v0.10
+[    2.387313] Linux video capture interface: v2.00
+[    2.387417] pps_core: LinuxPPS API ver. 1 registered
+[    2.387443] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    2.387523] RK29 Watchdog Timer, (c) 2011 Rockchip Electronics
+[    2.393203] ion_carveout_heap_create: 100000@62000000
+[    2.394904] Rockchip ion module is successfully loaded (v1.1)
+[    2.395217] Advanced Linux Sound Architecture Driver Initialized.
+[    2.398485] rk8xx_i2c_probe,line=906
+[    2.399319] pmic is rk816, chip version is 8163
+[    2.400016] pmic on/off source: on=0x40, off=0x8
+[    2.403732] of_get_named_gpio_flags exited with status 12
+[    2.403797] of_get_named_gpio_flags exited with status 13
+[    2.403870] rk8xx_i2c_probe: rk8xx_pmic_sleep=0
+[    2.406253] rk816_regulator_probe: compatible rk816
+[    2.409131] vdd_arm: 712 <--> 1450 mV at 1150 mV
+[    2.411899] vcc_22: 2200 mV
+[    2.414088] vcc_ddr: 1200 mV
+[    2.416737] vcc_io: 3300 mV
+[    2.419077] vdd_10: 1000 mV
+[    2.421453] vcc_18: 1800 mV
+[    2.423995] vdd10_pmu: 1000 mV
+[    2.426564] vdd33_pmu: 3300 mV
+[    2.427753] dovdd_cam: 1800 <--> 3300 mV at 1800 mV
+[    2.430034] lcd_bl: 1800 <--> 3300 mV at 2800 mV
+[    2.431322] rk8xx_i2c_probe success
+[    2.431742] i2c-core: driver [rk816] using legacy suspend method
+[    2.431776] i2c-core: driver [rk816] using legacy resume method
+[    2.432991] rk816_rtc_probe,line=463
+[    2.438989] rk8xx-rtc rk8xx-rtc: rtc core: registered rk816 as rtc0
+[    2.440191] rk816: rtc ok
+[    2.440788] rockchip-i2s 10120000.i2s1: i2s1 has no mclk
+[    2.442345] Switching to clocksource arch_sys_counter
+[    2.459471] rga: Module initialized.
+[    2.460497] rga2 30050000.rga: rga ion client create success!
+[    2.461294] rga: Driver loaded succesfully
+[    2.461678] uboot-logo-on:0
+[    2.461755] rk-fb rockchip-fb: rk fb ion client create success!
+[    2.461780] rk-fb rockchip-fb: rockchip framebuffer driver probe
+[    2.462412] of_get_named_gpio_flags exited with status 113
+[    2.462477] of_get_named_gpio_flags exited with status 112
+[    2.462529] of_get_named_gpio_flags exited with status 111
+[    2.462578] of_get_named_gpio_flags exited with status 19
+[    2.462621] of_get_named_gpio_flags exited with status 5
+[    2.462918] cmd: 0x11, val size: 0, delay: 120
+[    2.462948] cmd: 0x36, val size: 1, delay: 0
+[    2.462970] cmd: 0x3a, val size: 1, delay: 0
+[    2.462986] cmd: 0xb2, val size: 5, delay: 0
+[    2.463002] cmd: 0xb7, val size: 1, delay: 0
+[    2.463019] cmd: 0xbb, val size: 1, delay: 0
+[    2.463036] cmd: 0xb0, val size: 2, delay: 0
+[    2.463052] cmd: 0xb1, val size: 3, delay: 0
+[    2.463067] cmd: 0xbb, val size: 1, delay: 0
+[    2.463085] cmd: 0xc0, val size: 1, delay: 0
+[    2.463101] cmd: 0xc2, val size: 1, delay: 0
+[    2.463117] cmd: 0xc3, val size: 1, delay: 0
+[    2.463134] cmd: 0xc4, val size: 1, delay: 0
+[    2.463150] cmd: 0xc6, val size: 1, delay: 0
+[    2.463167] cmd: 0xd0, val size: 2, delay: 0
+[    2.463183] cmd: 0xd0, val size: 2, delay: 0
+[    2.463199] cmd: 0xe0, val size: 14, delay: 10
+[    2.463215] cmd: 0xe1, val size: 14, delay: 0
+[    2.463233] cmd: 0x2a, val size: 4, delay: 0
+[    2.463250] cmd: 0x2b, val size: 4, delay: 0
+[    2.463266] cmd: 0x21, val size: 0, delay: 0
+[    2.463281] cmd: 0x29, val size: 0, delay: 10
+[    2.463299] cmd: 0x2c, val size: 0, delay: 1
+[    2.463331] rk-screen rk_screen.11: rockchip screen probe success
+[    2.472373] graphics fb0: rockchip framebuffer registerd:fb0
+[    2.476908] graphics fb1: rockchip framebuffer registerd:fb1
+[    2.477347] graphics fb2: rockchip framebuffer registerd:fb2
+[    2.477751] rk-vop-lite vop0: lcdc0: dclk:18562500>>fps:90
+[    2.484662] rk_battery_charger_detect_cb , battery_charger_detect 1
+[    2.749622] rk-vop-lite vop0: wakeup from standby!
+[    2.751378] alloc_buffer:ion_phy_addr=0x63c00000
+[    2.751589] fb0:phy:63c00000>>vir:c8884000>>len:0x39000
+[    2.754542] rk-vop-lite vop0: lcdc0 probe ok, iommu disabled
+[    2.758354] NET: Registered protocol family 2
+[    2.759940] TCP established hash table entries: 1024 (order: 1, 8192 bytes)
+[    2.760634] TCP bind hash table entries: 1024 (order: 1, 8192 bytes)
+[    2.760692] TCP: Hash tables configured (established 1024 bind 1024)
+[    2.761881] TCP: reno registered
+[    2.761928] UDP hash table entries: 256 (order: 1, 8192 bytes)
+[    2.761974] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+[    2.762351] NET: Registered protocol family 1
+[    2.762577] rk816_gpio_probe: compatible rk816
+[    2.762608] gpiochip_find_base: found new base at 511
+[    2.762814] gpiochip_add: registered GPIOs 511 to 511 on device: rk8xx-gpio
+[    2.762847] rk8xx-gpio rk8xx-gpio: driver success
+[    2.763303] rk816-bat: realtime ocv table nums=0
+[    2.763369] rk816-bat: not support dc
+[    2.777541] rk816-bat: dsoc=46 cap=1525 v=3852 ov=3814 rv=0 min=0 psoc=46 pcap=1525
+[    2.786099] rk816-bat: set charger type: USB, current: input=450, chrg=1600
+[    2.789498] rk816-bat: driver version 1.2
+[    2.919911] vcodec_service: No noc aclk reset resource define
+[    2.919961] vcodec_service: No noc hclk reset resource define
+[    2.919988] vcodec_service: No core reset resource define
+[    2.920005] vcodec_service: No cabac reset resource define
+[    2.922110] vcodec 30000000.vpu_service: do not have pd_video
+[    2.922694] vcodec_service: probe device 30000000.vpu_service
+[    2.922748] vcodec_service: checking hw id 0
+[    2.924362] vcodec_service: init success
+[    2.924727] vcodec_service: No noc aclk reset resource define
+[    2.924767] vcodec_service: No noc hclk reset resource define
+[    2.924787] vcodec_service: No core reset resource define
+[    2.924806] vcodec_service: No cabac reset resource define
+[    2.925018] vcodec 30010000.rkvdec: do not have pd_video
+[    2.925078] vcodec_service: probe device 30010000.rkvdec
+[    2.925126] vcodec_service: checking hw id 6876
+[    2.929252] vcodec_service: init success
+[    2.929549] rknandbase v1.0 2014-03-31
+[    2.929978] rknand_driver:ret = 0
+[    2.940175] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    2.940748] jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+[    2.941855] msgmni has been set to 234
+[    2.943852] io scheduler noop registered
+[    2.943898] io scheduler deadline registered
+[    2.943977] io scheduler cfq registered (default)
+[    2.945610] of_get_named_gpio_flags: can't parse gpios property
+[    2.946203] iep: failed to find iep power down clock source.
+[    2.948419] iep ion client create success!
+[    2.948458] IEP Driver loaded succesfully
+[    2.949364] Module initialized.
+[    2.949657] probe device 28000000.rkvenc
+[    2.951474] mpp_dev 28000000.rkvenc: resource ready, register device
+[    2.955519] dma-pl330 102a0000.pdma: Loaded driver for PL330 DMAC-2364208
+[    2.955577] dma-pl330 102a0000.pdma:         DBUFF-128x8bytes Num_Chans-8 Num_Peri-20 Num_Events-16
+[    2.957567] rk_serial.c v2.0 2017-06-30
+[    2.958443] 10230000.serial: ttyS0 at MMIO 0x10230000 (irq = 76) is a rk29_serial.0
+[    2.959640] serial 10230000.serial: membase c88da000
+[    2.966155] loop: module loaded
+[    2.967229] zram: Created 1 device(s)
+[    2.969248] dws->regs: c88dc000
+[    2.971579] rockchip_spi_probe:num_cs=1,bus_num=0,irq=69,freq=47520000 ok
+[    2.971875] Rockchip WiFi SYS interface (V1.00) ...
+[    2.971960] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    2.971987] ehci-platform: EHCI generic platform driver
+[    2.972417] ehci-platform 30140000.usb: EHCI Host Controller
+[    2.972490] ehci-platform 30140000.usb: new USB bus registered, assigned bus number 1
+[    2.976179] ehci-platform 30140000.usb: irq 47, io mem 0x30140000
+[    2.993553] ehci-platform 30140000.usb: USB 2.0 started, EHCI 1.00
+[    2.993735] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+[    2.993764] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.993792] usb usb1: Product: EHCI Host Controller
+[    2.993816] usb usb1: Manufacturer: Linux 3.10.104+ ehci_hcd
+[    2.993838] usb usb1: SerialNumber: 30140000.usb
+[    2.994771] hub 1-0:1.0: USB hub found
+[    2.994831] hub 1-0:1.0: 1 port detected
+[    2.995382] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    2.995412] ohci-platform: OHCI generic platform driver
+[    2.995801] ohci-platform 30160000.usb: Generic Platform OHCI controller
+[    2.995875] ohci-platform 30160000.usb: new USB bus registered, assigned bus number 2
+[    2.995992] ohci-platform 30160000.usb: irq 48, io mem 0x30160000
+[    3.056652] usb usb2: New USB device found, idVendor=1d6b, idProduct=0001
+[    3.056705] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    3.056736] usb usb2: Product: Generic Platform OHCI controller
+[    3.056759] usb usb2: Manufacturer: Linux 3.10.104+ ohci_hcd
+[    3.056783] usb usb2: SerialNumber: 30160000.usb
+[    3.060272] hub 2-0:1.0: USB hub found
+[    3.060343] hub 2-0:1.0: 1 port detected
+[    3.060845] usb20_otg: version 3.10a 21-DEC-2012
+[    3.062716] c8d80040
+[    3.062750] Core Release: 3.10a
+[    3.062772] Setting default values for core params
+[    3.063052] Using Buffer DMA mode
+[    3.063078] Periodic Transfer Interrupt Enhancement - disabled
+[    3.063097] Multiprocessor Interrupt Enhancement - disabled
+[    3.063119] OTG VER PARAM: 0, OTG VER FLAG: 0
+[    3.063141] ^^^^^^^^^^^^^^^^^Device Mode
+[    3.063175] Dedicated Tx FIFOs mode
+[    3.063213] pcd_init otg_dev = c1ea7bc0
+[    3.063575] usb20_otg 30180000.usb: DWC OTG Controller
+[    3.063641] usb20_otg 30180000.usb: new USB bus registered, assigned bus number 3
+[    3.063710] usb20_otg 30180000.usb: irq 50, io mem 0x00000000
+[    3.063860] usb usb3: New USB device found, idVendor=1d6b, idProduct=0002
+[    3.063895] usb usb3: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    3.063920] usb usb3: Product: DWC OTG Controller
+[    3.063945] usb usb3: Manufacturer: Linux 3.10.104+ dwc_otg_hcd
+[    3.063967] usb usb3: SerialNumber: 30180000.usb
+[    3.070619] hub 3-0:1.0: USB hub found
+[    3.070676] hub 3-0:1.0: 1 port detected
+[    3.071299] usb20_host: version 3.10a 21-DEC-2012
+[    3.072934] input: pwm-beeper as /devices/vibrator.17/input/input0
+[    3.075161] input: rk816_pwrkey as /devices/20000000.i2c/i2c-0/0-001a/rk8xx-pwrkey/input/input1
+[    3.075474] rk816 register rk8xx_pwrkey driver
+[    3.075568] sensor_register_slave:bma2xx_acc,id=26
+[    3.075819] i2c /dev entries driver
+[    3.081242] cvbs-in 30070000.cvbsin: cvbsin init pltfrm success
+[    3.081301] cvbsin probe success
+[    3.081920] usbcore: registered new interface driver uvcvideo
+[    3.081948] USB Video Class driver (1.1.1)
+[    3.086793] gpio_poweroff_probe: pm_power_off function already registered
+[    3.086860] poweroff-gpio: probe of gpio_poweroff.19 failed with error -16
+[    3.087558] rockchip_temp_probe,line=384
+[    3.089608] tsadc 10370000.tsadc: Missing tsadc_low_temp in the DT.
+[    3.089777] tsadc 10370000.tsadc: initialized
+[    3.093010] DVFS LOG:        dvfs vd vd-logic fixed up setting: old 1150000 new 1100000.
+[    3.093035] cpufreq version 1.0, suspend freq 1008 MHz
+[    3.093607] cpuidle: using governor ladder
+[    3.093642] cpuidle: using governor menu
+[    3.093754] Synopsys Designware Multimedia Card Interface Driver
+[    3.093781] MHSC version = Ver 2.00 2015-06-10
+[    3.094895] dwmmc_rockchip 30120000.rksdmmc: Version ID is 270a
+[    3.095027] dwmmc_rockchip 30120000.rksdmmc: failed to get hpclk_mmc
+[    3.098441] dwmmc_rockchip 30120000.rksdmmc: Using internal DMA controller.
+[    3.098749] dwmmc_rockchip 30120000.rksdmmc: dw_mci_init_slot: fmin=200000, fmax=50000000 [mmc0]
+[    3.098818] of_get_named_gpio_flags: can't parse gpios property
+[    3.111646] rk_sdmmc: BOOT dw_mci_setup_bus: argue clk_mmc workaround out 800000Hz for init[mmc0]
+[    3.131402] dwmmc_rockchip 30120000.rksdmmc: DW MMC controller at irq 44, 32 bit host data width, 256 deep fifo
+[    3.131448] dwmmc_rockchip 30120000.rksdmmc: 1 slots initialized
+[    3.132548] dwmmc_rockchip 30130000.rksdmmc: Version ID is 270a
+[    3.132690] dwmmc_rockchip 30130000.rksdmmc: failed to get hpclk_mmc
+[    3.134087] dwmmc_rockchip 30130000.rksdmmc: Using internal DMA controller.
+[    3.137398] dwmmc_rockchip 30130000.rksdmmc: dw_mci_init_slot: fmin=200000, fmax=50000000 [mmc1]
+[    3.137475] of_get_named_gpio_flags: can't parse gpios property
+[    3.137723] dwmmc_rockchip 30130000.rksdmmc: mmc1: No udbg pinctrl found!
+[    3.151275] rk_sdmmc: BOOT dw_mci_setup_bus: argue clk_mmc workaround out 800000Hz for init[mmc1]
+[    3.160961] dwc_otg_hcd_suspend, usb device mode
+[    3.170852] dwmmc_rockchip 30130000.rksdmmc: DW MMC controller at irq 43, 32 bit host data width, 256 deep fifo
+[    3.170914] dwmmc_rockchip 30130000.rksdmmc: 1 slots initialized
+[    3.174827] ------------[ cut here ]------------
+[    3.174876] WARNING: at fs/sysfs/dir.c:530 0xc012daa0()
+[    3.174904] sysfs: cannot create duplicate filename '/class/power_supply/ac'
+[    3.174930] Modules linked in:
+[    3.174972] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 3.10.104+ #25
+[    3.175013] Function entered at [<c0013b2c>] from [<c0011328>]
+[    3.175042] Function entered at [<c0011328>] from [<c00386dc>]
+[    3.175071] Function entered at [<c00386dc>] from [<c0038778>]
+[    3.175098] Function entered at [<c0038778>] from [<c012daa0>]
+[    3.175126] Function entered at [<c012daa0>] from [<c012e5d8>]
+[    3.175154] Function entered at [<c012e5d8>] from [<c01f68d4>]
+[    3.175182] Function entered at [<c01f68d4>] from [<c01f7c08>]
+[    3.175210] Function entered at [<c01f7c08>] from [<c02e7ca8>]
+[    3.175237] Function entered at [<c02e7ca8>] from [<c02f0b28>]
+[    3.175265] Function entered at [<c02f0b28>] from [<c01faf74>]
+[    3.175293] Function entered at [<c01faf74>] from [<c01f9da8>]
+[    3.175319] Function entered at [<c01f9da8>] from [<c01fa004>]
+[    3.175344] Function entered at [<c01fa004>] from [<c01f87bc>]
+[    3.175371] Function entered at [<c01f87bc>] from [<c01f9f8c>]
+[    3.175396] Function entered at [<c01f9f8c>] from [<c01f93d8>]
+[    3.175422] Function entered at [<c01f93d8>] from [<c01f7c7c>]
+[    3.175447] Function entered at [<c01f7c7c>] from [<c032806c>]
+[    3.175474] Function entered at [<c032806c>] from [<c032817c>]
+[    3.175499] Function entered at [<c032817c>] from [<c0328274>]
+[    3.175526] Function entered at [<c0328274>] from [<c033e4b0>]
+[    3.175554] Function entered at [<c033e4b0>] from [<c01faf74>]
+[    3.175580] Function entered at [<c01faf74>] from [<c01f9da8>]
+[    3.175606] Function entered at [<c01f9da8>] from [<c01fa004>]
+[    3.175631] Function entered at [<c01fa004>] from [<c01fa07c>]
+[    3.175656] Function entered at [<c01fa07c>] from [<c01f8844>]
+[    3.175682] Function entered at [<c01f8844>] from [<c01f95f8>]
+[    3.175707] Function entered at [<c01f95f8>] from [<c01fa560>]
+[    3.175735] Function entered at [<c01fa560>] from [<c00086f4>]
+[    3.175764] Function entered at [<c00086f4>] from [<c055eafc>]
+[    3.175793] Function entered at [<c055eafc>] from [<c055ebbc>]
+[    3.175819] Function entered at [<c055ebbc>] from [<c043945c>]
+[    3.175846] Function entered at [<c043945c>] from [<c000dbe0>]
+[    3.175917] ---[ end trace 7522684f9724472e ]---
+[    3.176071] rv1108-battery battery_value.22: rv1108_battery_probe: failed to register
+[    3.176126] rv1108-battery: probe of battery_value.22 failed with error -17
+[    3.176936] rknandc_base v1.1 2017-01-11
+[    3.177458] rknandc 30100000.nandc: rknandc_probe clk rate = 148500000
+[    3.177540] rkflash_dev_init
+[    3.177567] init rkflash[0]
+[    3.177613] rkflash[0] init fail
+[    3.177683] rknandc: probe of 30100000.nandc failed with error -1
+[    3.177869] rksfc_base v1.1 2016-01-08
+[    3.178348] rksfc 301c0000.sfc: rksfc_probe clk rate = 99000000
+[    3.178417] rkflash_dev_init
+[    3.178441] init rkflash[1]
+[    3.178479] sfc nor id: c8 40 19
+[    3.190938] Creating 5 MTD partitions on "sfc_nor":
+[    3.190980] 0x000000001000-0x000000008000 : "vendor"
+[    3.191003] mtd: partition "vendor" doesn't start on an erase block boundary -- force read-only
+[    3.192406] 0x000000008000-0x000000078000 : "IDBlock"
+[    3.192441] mtd: partition "IDBlock" doesn't start on an erase block boundary -- force read-only
+[    3.193739] 0x000000080000-0x000000660000 : "kernel"
+[    3.195080] 0x000000660000-0x000001260000 : "rootfs"
+[    3.196391] 0x000001260000-0x000001f60000 : "flashfs"
+[    3.197723] rkflash[1] init success
+[    3.197751] sfc_nor flash registered as a mtd device
+[    3.199088] of_get_named_gpio_flags exited with status 8
+[    3.199129] SPEAKER CTRL rv1108->spk_ctl_gpio = 8
+[    3.230888] rockchip-rv1108 rockchip_audio.21:  rv1108-hifi <-> 10120000.i2s1 mapping ok
+[    3.232225] u32 classifier
+[    3.232251]     Actions configured
+[    3.232465] TCP: cubic registered
+[    3.232487] Initializing XFRM netlink socket
+[    3.232517] NET: Registered protocol family 17
+[    3.232587] NET: Registered protocol family 15
+[    3.232735] l2tp_core: L2TP core driver, V2.0
+[    3.232763] [WLAN_RFKILL]: Enter rfkill_wlan_init
+[    3.233011] [WLAN_RFKILL]: Enter rfkill_wlan_probe
+[    3.233040] [WLAN_RFKILL]: can't find rockchip,grf property
+[    3.233061] [WLAN_RFKILL]: wlan_platdata_parse_dt: wifi_chip_type = rtl8723cs
+[    3.233082] [WLAN_RFKILL]: wlan_platdata_parse_dt: enable wifi power control.
+[    3.233103] [WLAN_RFKILL]: wlan_platdata_parse_dt: disable wifi io reference voltage control.
+[    3.233124] [WLAN_RFKILL]: wlan_platdata_parse_dt: wifi power controled by gpio.
+[    3.233213] of_get_named_gpio_flags exited with status 11
+[    3.233230] [WLAN_RFKILL]: wlan_platdata_parse_dt: get property: WIFI,poweren_gpio = 11, flags = 1.
+[    3.233251] of_get_named_gpio_flags: can't parse gpios property
+[    3.233268] of_get_named_gpio_flags: can't parse gpios property
+[    3.233301] of_get_named_gpio_flags exited with status 3
+[    3.233316] [WLAN_RFKILL]: wlan_platdata_parse_dt: get property: WIFI,host_wake_irq = 3, flags = 0.
+[    3.233338] [WLAN_RFKILL]: rfkill_wlan_probe: init gpio
+[    3.233414] [WLAN_RFKILL]: rockchip_wifi_voltage_select: unsupport wifi & sdio reference voltage!
+[    3.233442] [WLAN_RFKILL]: Exit rfkill_wlan_probe
+[    3.233529] [BT_RFKILL]: Enter rfkill_rk_init
+[    3.240110] rv1108_suspend_init: pm_ctrbits = 0x100166
+[    3.240436] Registering SWP/SWPB emulation handler
+[    3.241081] flash vendor_init_thread!
+[    3.243021] ddrfreq: verion 1.3 20170830
+[    3.243060] ddrfreq: normal 600MHz performance 792MHz low_power 396MHz                video_1080p 0MHz video_4k 0MHz video_4k_60fps 0MHzdualview 0MHz idle 0MHz suspend 0MHz reboot 600MHz               video_4k_10b 0MHz video_4k_10b_60fps 0MHz
+[    3.243089] ddrfreq: auto-freq=0
+[    3.243104] ddrfreq: auto-freq-table epmty!
+[    3.243366] flash vendor storage:20170308 ret = 0
+[    3.244396] regulator-dummy: disabling
+[    3.244806] pcd_pullup, is_on 0
+[    3.244913] file system registered
+[    3.250242] android_usb gadget: Mass Storage Function, version: 2009/09/11
+[    3.250271] android_usb gadget: Number of LUNs=2
+[    3.250291]  lun0: LUN: removable file: (no medium)
+[    3.250308]  lun1: LUN: removable file: (no medium)
+[    3.250855] android_usb gadget: android_usb ready
+[    3.251008] sensor_init: Probe name sensors
+[    3.251050] sensor-dev.c v1.4 add angle calculation support between two gsensors 2013-09-01
+[    3.252286] rk8xx-rtc rk8xx-rtc: setting system clock to 2015-01-21 22:49:51 UTC (1421880591)
+[    3.270339] of_get_named_gpio_flags exited with status 97
+[    3.270379] of_get_named_gpio_flags exited with status 97
+[    3.270411] of_get_named_gpio_flags exited with status 96
+[    3.270440] of_get_named_gpio_flags exited with status 96
+[    3.270468] of_get_named_gpio_flags exited with status 95
+[    3.270489] of_get_named_gpio_flags exited with status 95
+[    3.270515] of_get_named_gpio_flags exited with status 98
+[    3.270540] of_get_named_gpio_flags exited with status 98
+[    3.270563] of_get_named_gpio_flags exited with status 100
+[    3.270584] of_get_named_gpio_flags exited with status 100
+[    3.270611] of_get_named_gpio_flags exited with status 99
+[    3.270632] of_get_named_gpio_flags exited with status 99
+[    3.270920] input: rk29-keypad as /devices/1038c000.adc/key0.23/input/input2
+[    3.274188] usbcore: registered new interface driver snd-usb-audio
+[    3.274229] ALSA device list:
+[    3.274251]   #0: RK_RV1108
+[    3.275431] Warning: unable to open an initial console.
+[    3.277632] Freeing unused kernel memory: 1484K (c055e000 - c06d1000)
+[    3.308511] usb 1-1: new high-speed USB device number 2 using ehci-platform
+[    3.375269] flash_vendor_ioctl cmd=40047601 ret = 0
+[    3.375871] flash_vendor_ioctl cmd=40047601 ret = 0
+[    3.457077] usb 1-1: New USB device found, idVendor=0cf3, idProduct=1022
+[    3.457117] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    3.457137] usb 1-1: Product: USBWLAN
+[    3.457155] usb 1-1: Manufacturer: Qualcomm Atheros.
+[    3.457172] usb 1-1: SerialNumber: 12345678
+[    3.731521] vendor storage:20160801 ret = -1
+[    3.785606] pm policy 0 -> 1
+[    3.818766] flash_vendor_ioctl cmd=40047601 ret = 0
+[    3.871108] android_usb: already disabled
+[    3.877006] flash_vendor_ioctl cmd=40047601 ret = 0
+[    4.083591] read descriptors
+[    4.083909] read strings
+[    4.084230] pcd_pullup, is_on 1
+[    4.197421] flash_vendor_ioctl cmd=40047601 ret = 0
+[    6.024413] [otg id chg] last id -1 current id 8192
+[    6.024523] PortPower off
+[    6.024564] rk_battery_charger_detect_cb , battery_charger_detect 6
+[    6.034161] rk816-bat: receive bc notifier event: OTG OFF..
+[    6.035004] rk816-bat: charge enable, disable otg
+[    6.127784] Using Buffer DMA mode
+[    6.127826] Periodic Transfer Interrupt Enhancement - disabled
+[    6.127844] Multiprocessor Interrupt Enhancement - disabled
+[    6.127863] OTG VER PARAM: 0, OTG VER FLAG: 0
+[    6.127879] ^^^^^^^^^^^^^^^^^Device Mode
+[    6.129905] dwc_otg_hcd_resume, usb device mode
+[    6.231196] dwc_otg_hcd_suspend, usb device mode
+[    6.614835] ***************vbus detect*****************
+[    6.617784] rk_battery_charger_detect_cb , battery_charger_detect 1
+[    6.624548] rk816-bat: receive bc notifier event: USB..
+[    6.625797] rk816-bat: set charger type: USB, current: input=450, chrg=1600
+[    6.693555] usb20_otg 30180000.usb: no reset control specified
+[    6.796215] Using Buffer DMA mode
+[    6.796254] Periodic Transfer Interrupt Enhancement - disabled
+[    6.796272] Multiprocessor Interrupt Enhancement - disabled
+[    6.796293] OTG VER PARAM: 0, OTG VER FLAG: 0
+[    6.796310] ^^^^^^^^^^^^^^^^^Device Mode
+[    6.800351] *******************soft connect!!!*******************
+[    6.899399] USB RESET
+[    6.950586] android_work: sent uevent USB_STATE=CONNECTED
+[    6.974735] android_usb gadget: high-speed config #1: android
+[    6.975637] android_work: sent uevent USB_STATE=CONFIGURED
+[    7.721099] rk816-bat: changed: dsoc=46, rsoc=77, v=3837, ov=3814 c=188, cap=1525, f=1970, st=cc cv, hotdie=0
+[    7.722474] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[  283.792651] rk816-bat: changed: dsoc=47, rsoc=78, v=3836, ov=3814 c=173, cap=1539, f=1970, st=cc cv, hotdie=0
+[  283.792740] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[  447.758274] USB RESET
+[  448.604473] USB RESET
+[  448.746690] android_usb gadget: high-speed config #1: android
+[  448.747476] pcd_pullup, is_on 0
+[    4.208107] rk816-bat: Full current charging (1.6A).
+[  448.747978] WARN::dwc_otg_pcd_ep_stop_transfer:1811: dwc_otg_pcd_ep_stop_transfer: timeout doepctl.epdis
+[  448.748017]
+[  448.750198] android_work: sent uevent USB_STATE=DISCONNECTED
+[  448.751139] read descriptors
+[  448.751222] read strings
+[  448.751415] pcd_pullup, is_on 1
+[  449.414761] **************soft reconnect**************
+[  449.494188] usb20_otg 30180000.usb: no reset control specified
+[  449.599414] Using Buffer DMA mode
+[  449.599453] Periodic Transfer Interrupt Enhancement - disabled
+[  449.599473] Multiprocessor Interrupt Enhancement - disabled
+[  449.599491] OTG VER PARAM: 0, OTG VER FLAG: 0
+[  449.599508] ^^^^^^^^^^^^^^^^^Device Mode
+[  449.603561] *******************soft connect!!!*******************
+[  450.398706] **************soft reconnect**************
+[  450.477599] usb20_otg 30180000.usb: no reset control specified
+[  450.584568] Using Buffer DMA mode
+[  450.584615] Periodic Transfer Interrupt Enhancement - disabled
+[  450.584639] Multiprocessor Interrupt Enhancement - disabled
+[  450.584664] OTG VER PARAM: 0, OTG VER FLAG: 0
+[  450.584682] ^^^^^^^^^^^^^^^^^Device Mode
+[  450.588732] *******************soft connect!!!*******************
+[  451.382743] **************soft reconnect**************
+[  451.461539] usb20_otg 30180000.usb: no reset control specified
+[  451.567956] Using Buffer DMA mode
+[  451.568327] Periodic Transfer Interrupt Enhancement - disabled
+[  451.568358] Multiprocessor Interrupt Enhancement - disabled
+[  451.568382] OTG VER PARAM: 0, OTG VER FLAG: 0
+[  451.568404] ^^^^^^^^^^^^^^^^^Device Mode
+[  451.572442] *******************soft connect!!!*******************
+[  451.575143] USB RESET
+[  451.717063] android_usb gadget: high-speed config #1: android
+[  451.718899] android_work: sent uevent USB_STATE=CONNECTED
+[  451.719519] android_work: sent uevent USB_STATE=CONFIGURED
+[  469.801484] USB RESET
+[  472.550672] USB RESET
+[  472.702706] android_usb gadget: high-speed config #1: android
+[  472.703191] pcd_pullup, is_on 0
+[  472.704551] android_work: sent uevent USB_STATE=DISCONNECTED
+[  472.705022] read descriptors
+[  472.705092] read strings
+[  472.705241] pcd_pullup, is_on 1
+[  473.030781] **************soft reconnect**************
+[  473.109573] usb20_otg 30180000.usb: no reset control specified
+[  473.211689] Using Buffer DMA mode
+[  473.211738] Periodic Transfer Interrupt Enhancement - disabled
+[  473.211759] Multiprocessor Interrupt Enhancement - disabled
+[  473.211782] OTG VER PARAM: 0, OTG VER FLAG: 0
+[  473.211801] ^^^^^^^^^^^^^^^^^Device Mode
+[  473.215848] *******************soft connect!!!*******************
+[  473.314679] USB RESET
+[  473.362481] android_work: sent uevent USB_STATE=CONNECTED
+[  473.381725] android_usb gadget: high-speed config #1: android
+[  473.382608] android_work: sent uevent USB_STATE=CONFIGURED
+[  476.250186] rk816-bat: caltimer: ioffset=0x7fb, coffset=0x812
+[  545.074242] rk816-bat: changed: dsoc=48, rsoc=79, v=3847, ov=3814 c=177, cap=1552, f=1970, st=cc cv, hotdie=0
+[  545.074328] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[  553.158311] USB RESET
+[  553.210016] USB RESET
+[  553.281183] android_usb gadget: high-speed config #1: android
+[  553.281648] pcd_pullup, is_on 0
+[  553.283089] android_work: sent uevent USB_STATE=DISCONNECTED
+[  553.283576] read descriptors
+[  553.283651] read strings
+[  553.283792] pcd_pullup, is_on 1
+[  553.718697] **************soft reconnect**************
+[  553.797669] usb20_otg 30180000.usb: no reset control specified
+[  553.898350] Using Buffer DMA mode
+[  553.898389] Periodic Transfer Interrupt Enhancement - disabled
+[  553.898408] Multiprocessor Interrupt Enhancement - disabled
+[  553.898428] OTG VER PARAM: 0, OTG VER FLAG: 0
+[  553.898445] ^^^^^^^^^^^^^^^^^Device Mode
+[  553.902491] *******************soft connect!!!*******************
+[  554.001569] USB RESET
+[  554.053530] android_work: sent uevent USB_STATE=CONNECTED
+[  554.078134] android_usb gadget: high-speed config #1: android
+[  554.079059] android_work: sent uevent USB_STATE=CONFIGURED
+[  801.425267] rk816-bat: changed: dsoc=49, rsoc=79, v=3848, ov=3814 c=174, cap=1565, f=1970, st=cc cv, hotdie=0
+[  801.425352] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[  949.829651] rk816-bat: caltimer: ioffset=0x7fa, coffset=0x811
+[ 1057.777506] rk816-bat: changed: dsoc=50, rsoc=80, v=3851, ov=3814 c=182, cap=1578, f=1970, st=cc cv, hotdie=0
+[ 1057.777589] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 1314.129586] rk816-bat: changed: dsoc=51, rsoc=81, v=3853, ov=3814 c=182, cap=1591, f=1970, st=cc cv, hotdie=0
+[ 1314.130933] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 1423.409306] rk816-bat: caltimer: ioffset=0x7fa, coffset=0x811
+[ 1570.481398] rk816-bat: changed: dsoc=52, rsoc=81, v=3854, ov=3814 c=176, cap=1604, f=1970, st=cc cv, hotdie=0
+[ 1570.481481] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 1846.552601] rk816-bat: changed: dsoc=53, rsoc=82, v=3855, ov=3814 c=173, cap=1618, f=1970, st=cc cv, hotdie=0
+[ 1846.552687] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 1896.988602] rk816-bat: caltimer: ioffset=0x7fa, coffset=0x811
+[ 2102.903674] rk816-bat: changed: dsoc=54, rsoc=83, v=3857, ov=3814 c=183, cap=1631, f=1970, st=cc cv, hotdie=0
+[ 2102.903760] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 2359.255975] rk816-bat: changed: dsoc=55, rsoc=83, v=3859, ov=3814 c=185, cap=1644, f=1970, st=cc cv, hotdie=0
+[ 2359.256062] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 2370.568680] rk816-bat: caltimer: ioffset=0x7fa, coffset=0x811
+[ 2620.536959] rk816-bat: changed: dsoc=56, rsoc=84, v=3862, ov=3814 c=182, cap=1657, f=1970, st=cc cv, hotdie=0
+[ 2620.537047] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 2844.147871] rk816-bat: caltimer: ioffset=0x7fa, coffset=0x811
+[ 2876.888486] rk816-bat: changed: dsoc=57, rsoc=85, v=3863, ov=3814 c=177, cap=1670, f=1970, st=cc cv, hotdie=0
+[ 2876.888574] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 3133.242192] rk816-bat: changed: dsoc=58, rsoc=85, v=3865, ov=3814 c=180, cap=1683, f=1970, st=cc cv, hotdie=0
+[ 3133.242280] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 3317.727176] rk816-bat: caltimer: ioffset=0x7fa, coffset=0x811
+[ 3414.250948] rk816-bat: changed: dsoc=59, rsoc=86, v=3869, ov=3814 c=183, cap=1697, f=1970, st=cc cv, hotdie=0
+[ 3414.251032] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 3670.602730] rk816-bat: changed: dsoc=60, rsoc=87, v=3870, ov=3814 c=177, cap=1710, f=1970, st=cc cv, hotdie=0
+[ 3670.602813] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 3791.306882] rk816-bat: caltimer: ioffset=0x7f9, coffset=0x810
+[ 3931.884834] rk816-bat: changed: dsoc=61, rsoc=87, v=3874, ov=3814 c=188, cap=1723, f=1970, st=cc cv, hotdie=0
+[ 3931.884923] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 4188.236196] rk816-bat: changed: dsoc=62, rsoc=88, v=3875, ov=3814 c=185, cap=1736, f=1970, st=cc cv, hotdie=0
+[ 4188.236281] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 4264.886476] rk816-bat: caltimer: ioffset=0x7f9, coffset=0x810
+[ 4444.587587] rk816-bat: changed: dsoc=63, rsoc=89, v=3877, ov=3814 c=176, cap=1749, f=1970, st=cc cv, hotdie=0
+[ 4444.588945] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 4705.869588] rk816-bat: changed: dsoc=64, rsoc=89, v=3880, ov=3814 c=180, cap=1762, f=1970, st=cc cv, hotdie=0
+[ 4705.869675] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 4738.465921] rk816-bat: caltimer: ioffset=0x7f9, coffset=0x810
+[ 4967.151156] rk816-bat: changed: dsoc=65, rsoc=90, v=3883, ov=3814 c=177, cap=1775, f=1970, st=cc cv, hotdie=0
+[ 4967.151246] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 5212.045409] rk816-bat: caltimer: ioffset=0x7f9, coffset=0x810
+[ 5248.151579] rk816-bat: changed: dsoc=66, rsoc=91, v=3886, ov=3814 c=173, cap=1789, f=1970, st=cc cv, hotdie=0
+[ 5248.152953] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 5509.433385] rk816-bat: changed: dsoc=67, rsoc=91, v=3889, ov=3814 c=174, cap=1802, f=1970, st=cc cv, hotdie=0
+[ 5509.433470] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 5685.624736] rk816-bat: caltimer: ioffset=0x7f8, coffset=0x80f
+[ 5770.714538] rk816-bat: changed: dsoc=68, rsoc=92, v=3892, ov=3814 c=174, cap=1815, f=1970, st=cc cv, hotdie=0
+[ 5770.714626] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 6032.005832] rk816-bat: changed: dsoc=69, rsoc=93, v=3898, ov=3814 c=179, cap=1828, f=1970, st=cc cv, hotdie=0
+[ 6032.005918] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 6159.204507] rk816-bat: caltimer: ioffset=0x7f8, coffset=0x80f
+[ 6293.287971] rk816-bat: changed: dsoc=70, rsoc=93, v=3901, ov=3814 c=173, cap=1841, f=1970, st=cc cv, hotdie=0
+[ 6293.288058] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 6554.568897] rk816-bat: changed: dsoc=71, rsoc=94, v=3908, ov=3814 c=182, cap=1854, f=1970, st=cc cv, hotdie=0
+[ 6554.568984] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 6632.783967] rk816-bat: caltimer: ioffset=0x7f7, coffset=0x80e
+[ 6835.570068] rk816-bat: changed: dsoc=72, rsoc=95, v=3912, ov=3814 c=182, cap=1868, f=1970, st=cc cv, hotdie=0
+[ 6835.570157] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 7096.851279] rk816-bat: changed: dsoc=73, rsoc=95, v=3916, ov=3814 c=171, cap=1881, f=1970, st=cc cv, hotdie=0
+[ 7096.851365] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 7106.363538] rk816-bat: caltimer: ioffset=0x7f7, coffset=0x80e
+[ 7363.062642] rk816-bat: changed: dsoc=74, rsoc=96, v=3920, ov=3814 c=174, cap=1894, f=1970, st=cc cv, hotdie=0
+[ 7363.064044] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 7579.942918] rk816-bat: caltimer: ioffset=0x7f6, coffset=0x80d
+[ 7629.273996] rk816-bat: changed: dsoc=75, rsoc=97, v=3923, ov=3814 c=173, cap=1907, f=1970, st=cc cv, hotdie=0
+[ 7629.274082] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 7890.556029] rk816-bat: changed: dsoc=76, rsoc=97, v=3928, ov=3814 c=173, cap=1920, f=1970, st=cc cv, hotdie=0
+[ 7890.556114] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 8053.523687] rk816-bat: caltimer: ioffset=0x7f6, coffset=0x80d
+[ 8156.776811] rk816-bat: changed: dsoc=77, rsoc=98, v=3931, ov=3814 c=168, cap=1933, f=1970, st=cc cv, hotdie=0
+[ 8156.776896] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 8253.797129] USB RESET
+[ 8254.364941] USB RESET
+[ 8254.413369] USB RESET
+[ 8254.603067] USB RESET
+[ 8254.653799] USB RESET
+[ 8254.876502] android_usb gadget: high-speed config #1: android
+[ 8254.877098] pcd_pullup, is_on 0
+[ 8254.878424] android_work: sent uevent USB_STATE=DISCONNECTED
+[ 8254.878950] read descriptors
+[ 8254.879022] read strings
+[ 8254.879165] pcd_pullup, is_on 1
+[ 8255.486724] **************soft reconnect**************
+[ 8255.565521] usb20_otg 30180000.usb: no reset control specified
+[ 8255.668170] Using Buffer DMA mode
+[ 8255.668216] Periodic Transfer Interrupt Enhancement - disabled
+[ 8255.668238] Multiprocessor Interrupt Enhancement - disabled
+[ 8255.668262] OTG VER PARAM: 0, OTG VER FLAG: 0
+[ 8255.668282] ^^^^^^^^^^^^^^^^^Device Mode
+[ 8255.672329] *******************soft connect!!!*******************
+[ 8255.771908] USB RESET
+[ 8255.823007] android_work: sent uevent USB_STATE=CONNECTED
+[ 8265.413594] USB RESET
+[ 8265.462003] USB RESET
+[ 8265.584649] USB RESET
+[ 8265.634561] USB RESET
+[ 8265.861636] android_usb gadget: high-speed config #1: android
+[ 8265.862563] android_work: sent uevent USB_STATE=CONFIGURED
+[ 8321.740179] adbd (170): /proc/170/oom_adj is deprecated, please use /proc/170/oom_score_adj instead.
+[ 8437.777567] rk816-bat: changed: dsoc=78, rsoc=99, v=3933, ov=3814 c=171, cap=1947, f=1970, st=cc cv, hotdie=0
+[ 8437.777635] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
+[ 8527.102059] rk816-bat: caltimer: ioffset=0x7f6, coffset=0x80d
+[ 8703.989657] rk816-bat: changed: dsoc=79, rsoc=99, v=3939, ov=3814 c=180, cap=1960, f=1970, st=cc cv, hotdie=0
+[ 8703.989743] rk816-bat: dl=46, rl=77, v=3852, halt=0, halt_n=0, max=0, init=0, sw=0, calib=0, below0=0, force=0
