@@ -768,6 +768,12 @@ function pack_images()
 	fi
 }
 
+function update_my_images()
+{
+	[ -d ${OUTPUT} ] || mkdir -p ${OUTPUT}
+	cp -rf pack_image.py  rv110x_loader_*.bin parameter-gpt.txt uboot.img  idblock.bin ${OUTPUT}/
+}
+
 function finish()
 {
 	echo
@@ -791,6 +797,7 @@ clean_files
 make PYTHON=python2 CROSS_COMPILE=${TOOLCHAIN} all --jobs=${JOB}
 pack_idblock
 pack_images
+update_my_images
 finish
 echo ${TOOLCHAIN}
 date

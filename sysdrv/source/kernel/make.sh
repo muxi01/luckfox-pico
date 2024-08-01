@@ -71,6 +71,20 @@ function make_fatfs()
 	sudo rm -rf  ./kernel_tmp
 }
 
+
+function update_images()
+{
+	echo "update kernel.fat uImage.dtb modules.tar uImage.img"
+	[ -d ${OUTPUT} ] || mkdir -p ${OUTPUT}
+	cp -rf 	${KNL_IMAGE} 		${OUTPUT}/uImage.img
+	cp -rf  ${DTB_IMAGE}  		${OUTPUT}/uImage.dtb
+	cp -rf 	${FAT_IMAGE} 		${OUTPUT}/
+	cp -rf  ${MODULES_LIB}.tar  ${OUTPUT}/
+}
+
+
+
 do_make
 make_fatfs
+update_images
 echo "$(date)"

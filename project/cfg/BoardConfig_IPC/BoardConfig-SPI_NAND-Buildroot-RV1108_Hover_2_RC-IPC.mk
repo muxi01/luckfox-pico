@@ -98,7 +98,7 @@ export RK_CAMERA_SENSOR_CAC_BIN="CAC_sc4336_OT01_40IRC_F16"
 # export RK_APP_IPCWEB_BACKEND=y
 
 # enable install app to oem partition
-export RK_BUILD_APP_TO_OEM_PARTITION=y
+# export RK_BUILD_APP_TO_OEM_PARTITION=y
 
 # enable rockchip test
-export RK_ENABLE_ROCKCHIP_TEST=y
+# export RK_ENABLE_ROCKCHIP_TEST=y
