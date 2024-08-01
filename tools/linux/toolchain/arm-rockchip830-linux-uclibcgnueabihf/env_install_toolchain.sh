@@ -5,7 +5,6 @@
 INSTALL_TARGET_DIR=
 toolchain_cross=`pwd`
 toolchain_cross=$(basename ${toolchain_cross})
-export ARCH=arm
 
 if [ -n "$1" ]; then
 	if [ -d "$1" ]; then
