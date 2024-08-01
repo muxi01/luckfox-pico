@@ -14,8 +14,7 @@ typedef __SIZE_TYPE__ size;
 #define NO_ERROR 0
 #define COMP_UNKNOWN 1	 /* The specififed bytype is invalid */
 #define CODE_NOT_FOUND 2 /* a huffman code in the stream could not be decoded */
-#define TOO_MANY_BITS 3	 /* pull_bits was passed an argument that is too
-			  * large */
+#define TOO_MANY_BITS 3	 /* pull_bits was passed an argument that is too * large */
 
 /* This struct represents an entire huffman code set. It has various lookup
  * tables to speed decoding */
@@ -26,8 +25,7 @@ struct huffman_set {
 	int *symbols;	 /* All of the symbols, sorted by the huffman code */
 	int *count;	 /* the number of codes of this bit length */
 	int *first;	 /* the first code of this bit length */
-	int *pos;	 /* the symbol that first represents (in the symbols
-			  * array) */
+	int *pos;	 /* the symbol that first represents (in the symbols array) */
 };
 
 struct bitstream {
