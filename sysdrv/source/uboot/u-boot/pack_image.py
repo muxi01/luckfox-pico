@@ -18,6 +18,10 @@ import os,sys,subprocess
 # Secondary GPT	    16777183	00FFFFDF	    33	    00000021	    16896	    16.5KB	 	 
 
 
+#dd if=/dev/zero  of=header.img bs=1024 count=32768
+#gdisk header.img       |create image
+#r ->x ->l ->64 ->m  |change sector interval to 64
+
 # Number  Start (sector)    End (sector)  Size       Code  Name
 #    1              64            8064   3.9 MiB     8300  loader1
 #    2            8128           16320   4.0 MiB     8300  env
@@ -27,10 +31,10 @@ import os,sys,subprocess
 #    6          131136          196574   32.0 MiB    8300  rootfs
 
 PARTIONS_TABLE={
-    "loader1":[64,      8064,   "/dev/none",    "./idbloader.img"],
+    "loader1":[64,      8064,   "/dev/none",    "./idbloader_op.img"],
     "uboot"  :[16384,   24512,  "/dev/none",    "./uboot.img"],
-    "trust"  :[24576,   32704,  "/dev/none",    "./trust.img"],
-    "kernel" :[32768,   131072, "/dev/none",    "./kernel.fat"],
+    # "trust"  :[24576,   32704,  "/dev/none",    "./trust.img"],
+    # "kernel" :[32768,   131072, "/dev/none",    "./kernel.fat"],
 }
 
 

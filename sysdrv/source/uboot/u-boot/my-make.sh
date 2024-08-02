@@ -521,14 +521,18 @@ function pack_idblock()
 	fi
 
 	# pack
-	rm idblock.bin -f
-	./tools/mkimage -n ${PLAT} -T rksd -d ${TPL_BIN}:${SPL_BIN} idblock.bin
+	rm idblock_rk.bin idbloader_op.img -f
+	# echo "./tools/mkimage -n ${PLAT} -T rksd -d ${TPL_BIN}:${SPL_BIN} idblock.bin"
+	./tools/mkimage -n ${PLAT} -T rkspi -d ${TPL_BIN}:${SPL_BIN} idblock_rk.bin
+
+	./tools/mkimage -n ${PLAT} -T rkspi -d tpl/u-boot-tpl.bin idbloader_op.img
+	cat spl/u-boot-spl.bin >> idbloader_op.img
 	echo "Input:"
 	echo "    ${INI}"
 	echo "    ${TPL_BIN}"
 	echo "    ${SPL_BIN}"
 	echo
-	echo "Pack ${PLAT} idblock.bin okay!"
+	echo "Pack ${PLAT} idblock_rk.bin idbloader_op.img okay!"
 	echo
 }
 
@@ -764,6 +768,7 @@ function pack_images()
 			pack_uboot_image
 			pack_trust_image
 			pack_loader_image
+			pack_idblock
 		fi
 	fi
 }
@@ -771,7 +776,8 @@ function pack_images()
 function update_my_images()
 {
 	[ -d ${OUTPUT} ] || mkdir -p ${OUTPUT}
-	cp -rf pack_image.py  rv110x_loader_*.bin parameter-gpt.txt uboot.img  idblock.bin ${OUTPUT}/
+	echo "update images to  ${OUTPUT}"
+	cp -rf pack_image.py  uboot.img rv110x_loader_v1.12.126.bin parameter-gpt.txt   idbloader_op.img  idblock_rk.bin ${OUTPUT}/
 }
 
 function finish()
@@ -795,7 +801,6 @@ sub_commands
 clean_files
 # bear -- make PYTHON=python2 CROSS_COMPILE=${TOOLCHAIN} all --jobs=${JOB}
 make PYTHON=python2 CROSS_COMPILE=${TOOLCHAIN} all --jobs=${JOB}
-pack_idblock
 pack_images
 update_my_images
 finish
