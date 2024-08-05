@@ -263,7 +263,7 @@ function process_args()
 function select_toolchain()
 {
 	# If no outer CROSS_COMPILE, look for it from CC_FILE.
-	echo "---->|${ARG_COMPILE}|--->|${CC_FILE}|"
+	# echo "---->|${ARG_COMPILE}|--->|${CC_FILE}|"
 	if [ "${ARG_COMPILE}" != "y" ]; then
 		if [ -f ${CC_FILE} ]; then
 			CROSS_COMPILE_ARM32=`cat ${CC_FILE}`
@@ -757,6 +757,38 @@ function clean_files()
 	rm spl/u-boot-spl tpl/u-boot-tpl u-boot -f
 }
 
+
+function pack_images_rv1108()
+{
+	# chip
+	COMMON_H=`grep "_common.h:" include/autoconf.mk.dep | awk -F "/" '{ printf $3 }'`
+	if [ ${COMMON_H}  == "rv1108_common.h:" ] ; then
+		echo "pckage rv1108 images"
+		IMAGES_OUTPUT="${SRCTREE}/output"
+		UBOOT_IMAGE="${SRCTREE}/u-boot.bin"
+		PACKAGE_IMAGE="${RKBIN}/scripts/rv1108/kernelimage"
+		FIRMWARE_MERGER="${RKBIN}/scripts/rv1108/firmwareMerger"
+		BURNING_TOOLS="${RKBIN}/scripts/rv1108/burning.sh"
+		SETTING_FILE="${RKBIN}/scripts/rv1108/hover2.ini"
+		BASE_IMAGE_PATH="${RKBIN}/bin/rv1108"
+		
+		# [ -d ${IMAGES_OUTPUT} ] && rm -rf ${IMAGES_OUTPUT}
+		# mkdir -p ${IMAGES_OUTPUT}
+
+		# cp -f ${BASE_IMAGE_PATH}/*.img ${IMAGES_OUTPUT}
+		# cp -f ${BASE_IMAGE_PATH}/*.bin ${IMAGES_OUTPUT}
+		# cp -f ${SETTING_FILE}	${IMAGES_OUTPUT}
+
+		# cp -f ${BURNING_TOOLS}	${IMAGES_OUTPUT}
+
+		# define CONFIG_SYS_TEXT_BASE  0x60000000
+		${PACKAGE_IMAGE} --pack --uboot  ${UBOOT_IMAGE}  ${IMAGES_OUTPUT}/u-boot.img 0x60000000
+		${FIRMWARE_MERGER} -p  ${IMAGES_OUTPUT}/hover2.ini  ${IMAGES_OUTPUT}/
+	else
+		echo "nothing to do"
+	fi
+}
+
 function pack_images()
 {
 	if [ "${ARG_RAW_COMPILE}" != "y" ]; then
@@ -765,10 +797,10 @@ function pack_images()
 		elif [ "${PLAT_TYPE}" == "DECOMP" ]; then
 			${SCRIPT_DECOMP} ${ARG_LIST_FIT} --chip ${RKCHIP_LABEL}
 		else
+			pack_images_rv1108
 			pack_uboot_image
 			pack_trust_image
 			pack_loader_image
-			pack_idblock
 		fi
 	fi
 }
@@ -800,9 +832,11 @@ handle_args_late
 sub_commands
 clean_files
 # bear -- make PYTHON=python2 CROSS_COMPILE=${TOOLCHAIN} all --jobs=${JOB}
-make PYTHON=python2 CROSS_COMPILE=${TOOLCHAIN} all --jobs=${JOB}
-pack_images
-update_my_images
+# make PYTHON=python2 CROSS_COMPILE=${TOOLCHAIN} all --jobs=${JOB}
+# pack_images
+# update_my_images
+
+pack_images_rv1108
 finish
 echo ${TOOLCHAIN}
 date
