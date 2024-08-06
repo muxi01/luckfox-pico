@@ -51,5 +51,7 @@ if [ ${BIN_KB} -gt ${MAX_KB} ]; then
 fi
 
 ../rkbin/tools/loaderimage --pack --uboot u-boot.bin uboot.img ${LOAD_ADDR} ${SIZE}
+#use u-boot like kernel to cheat the rv1108 loader of rockchip
+../rkbin/scripts/rv1108/kernelimage --pack --kernel u-boot.bin uboot-like-kernel.img ${LOAD_ADDR}
 echo "pack uboot okay! Input: u-boot.bin"
 echo

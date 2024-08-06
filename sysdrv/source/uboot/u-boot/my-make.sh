@@ -12,9 +12,8 @@ CMD_ARGS=$1
 
 ########################################### User can modify #############################################
 RKBIN_TOOLS=../rkbin/tools
-#CROSS_COMPILE_ARM32=../prebuilts/gcc/linux-x86/arm/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
-CROSS_COMPILE_ARM64=../prebuilts/gcc/linux-x86/aarch64/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
 CROSS_COMPILE_ARM32=/home/xialixin/workspace/luckfox-pico/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-
+CROSS_COMPILE_ARM64=../prebuilts/gcc/linux-x86/aarch64/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
 ########################################### User not touch #############################################
 # Declare global INI file searching index name for every chip, update in select_chip_info()
 RKCHIP=
@@ -263,7 +262,6 @@ function process_args()
 function select_toolchain()
 {
 	# If no outer CROSS_COMPILE, look for it from CC_FILE.
-	# echo "---->|${ARG_COMPILE}|--->|${CC_FILE}|"
 	if [ "${ARG_COMPILE}" != "y" ]; then
 		if [ -f ${CC_FILE} ]; then
 			CROSS_COMPILE_ARM32=`cat ${CC_FILE}`
@@ -521,18 +519,14 @@ function pack_idblock()
 	fi
 
 	# pack
-	rm idblock_rk.bin idbloader_op.img -f
-	# echo "./tools/mkimage -n ${PLAT} -T rksd -d ${TPL_BIN}:${SPL_BIN} idblock.bin"
-	./tools/mkimage -n ${PLAT} -T rkspi -d ${TPL_BIN}:${SPL_BIN} idblock_rk.bin
-
-	./tools/mkimage -n ${PLAT} -T rkspi -d tpl/u-boot-tpl.bin idbloader_op.img
-	cat spl/u-boot-spl.bin >> idbloader_op.img
+	rm idblock.bin -f
+	./tools/mkimage -n ${PLAT} -T rksd -d ${TPL_BIN}:${SPL_BIN} idblock.bin
 	echo "Input:"
 	echo "    ${INI}"
 	echo "    ${TPL_BIN}"
 	echo "    ${SPL_BIN}"
 	echo
-	echo "Pack ${PLAT} idblock_rk.bin idbloader_op.img okay!"
+	echo "Pack ${PLAT} idblock.bin okay!"
 	echo
 }
 
@@ -757,38 +751,6 @@ function clean_files()
 	rm spl/u-boot-spl tpl/u-boot-tpl u-boot -f
 }
 
-
-function pack_images_rv1108()
-{
-	# chip
-	COMMON_H=`grep "_common.h:" include/autoconf.mk.dep | awk -F "/" '{ printf $3 }'`
-	if [ ${COMMON_H}  == "rv1108_common.h:" ] ; then
-		echo "pckage rv1108 images"
-		IMAGES_OUTPUT="${SRCTREE}/output"
-		UBOOT_IMAGE="${SRCTREE}/u-boot.bin"
-		PACKAGE_IMAGE="${RKBIN}/scripts/rv1108/kernelimage"
-		FIRMWARE_MERGER="${RKBIN}/scripts/rv1108/firmwareMerger"
-		BURNING_TOOLS="${RKBIN}/scripts/rv1108/burning.sh"
-		SETTING_FILE="${RKBIN}/scripts/rv1108/hover2.ini"
-		BASE_IMAGE_PATH="${RKBIN}/bin/rv1108"
-		
-		# [ -d ${IMAGES_OUTPUT} ] && rm -rf ${IMAGES_OUTPUT}
-		# mkdir -p ${IMAGES_OUTPUT}
-
-		# cp -f ${BASE_IMAGE_PATH}/*.img ${IMAGES_OUTPUT}
-		# cp -f ${BASE_IMAGE_PATH}/*.bin ${IMAGES_OUTPUT}
-		# cp -f ${SETTING_FILE}	${IMAGES_OUTPUT}
-
-		# cp -f ${BURNING_TOOLS}	${IMAGES_OUTPUT}
-
-		# define CONFIG_SYS_TEXT_BASE  0x60000000
-		${PACKAGE_IMAGE} --pack --uboot  ${UBOOT_IMAGE}  ${IMAGES_OUTPUT}/u-boot.img 0x60000000
-		${FIRMWARE_MERGER} -p  ${IMAGES_OUTPUT}/hover2.ini  ${IMAGES_OUTPUT}/
-	else
-		echo "nothing to do"
-	fi
-}
-
 function pack_images()
 {
 	if [ "${ARG_RAW_COMPILE}" != "y" ]; then
@@ -797,19 +759,11 @@ function pack_images()
 		elif [ "${PLAT_TYPE}" == "DECOMP" ]; then
 			${SCRIPT_DECOMP} ${ARG_LIST_FIT} --chip ${RKCHIP_LABEL}
 		else
-			pack_images_rv1108
 			pack_uboot_image
 			pack_trust_image
 			pack_loader_image
 		fi
 	fi
-}
-
-function update_my_images()
-{
-	[ -d ${OUTPUT} ] || mkdir -p ${OUTPUT}
-	echo "update images to  ${OUTPUT}"
-	cp -rf pack_image.py  uboot.img rv110x_loader_v1.12.126.bin parameter-gpt.txt   idbloader_op.img  idblock_rk.bin ${OUTPUT}/
 }
 
 function finish()
@@ -832,11 +786,8 @@ handle_args_late
 sub_commands
 clean_files
 # bear -- make PYTHON=python2 CROSS_COMPILE=${TOOLCHAIN} all --jobs=${JOB}
-# make PYTHON=python2 CROSS_COMPILE=${TOOLCHAIN} all --jobs=${JOB}
-# pack_images
-# update_my_images
-
-pack_images_rv1108
+make PYTHON=python2 CROSS_COMPILE=${TOOLCHAIN} all --jobs=${JOB}
+pack_images
 finish
 echo ${TOOLCHAIN}
 date
