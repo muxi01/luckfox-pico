@@ -1,0 +1,41 @@
+reboot rkusb ,在kernel中进入usb loader 模式
+
+---------------------------------------normal
+DDR Version V1.03 20180118
+set vdd core 1.15v
+In
+600MHz
+DDR3
+Bus Width=16 Col=10 Bank=8 Row=13 CS=1 Die Bus-Width=16 Size=128MB
+mach:2
+OUT
+1 BUILD: Apr 18 2018 19:33:57, version: 1.25
+cardInfo.type = 0
+emmc reinit
+cardInfo.type = 0
+emmc reinit
+cardInfo.type = 0
+SdmmcInit=2 20
+sfc nor id: ff ef aa
+sfc_nand_init
+sfc_nand id: ef aa 21
+sfc_nand A0 = 0x0
+sfc_nand B0 = 0x18
+sfc_nand C0 = 0x2
+read_lines = 2
+prog_lines = 2
+page_read_cmd = 6b
+page_prog_cmd = 32
+read_idblock 100
+IdBlockReadData 0 100
+read_idblock fcdc8c3b 100
+SFTL version: 5.0.43 20180116
+boot_media = 0x40
+flash vendor_storage_init
+OK! 592400
+loader flag: 0x5242c300
+start_linux=====593039
+multi-entries loader - fw_status: 0x1, kernel_addr 400, 593 ms
+load data done @1461 ms
+run kernel@0x62000000 =====1519 ms
+<hit enter to activate fiq debugger>

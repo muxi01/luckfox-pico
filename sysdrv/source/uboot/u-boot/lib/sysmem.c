@@ -22,7 +22,7 @@ DECLARE_GLOBAL_DATA_PTR;
 #define SYSMEM_W(fmt, args...)	printf("Sysmem Warn: "fmt, ##args)
 #define SYSMEM_E(fmt, args...)	printf("Sysmem Error: "fmt, ##args)
 #define SYSMEM_D(fmt, args...)	 debug("Sysmem Debug: "fmt, ##args)
-
+#define LOG_PRINT(fmt,args...)		//	printf(fmt,##args)
 struct memcheck {
 	uint32_t magic;
 };
@@ -701,6 +701,7 @@ int sysmem_free(phys_addr_t base)
 
 int sysmem_initr(void)
 {
+	LOG_PRINT("%s.%d\n",__FUNCTION__,__LINE__);
 	return sysmem_init();
 }
 

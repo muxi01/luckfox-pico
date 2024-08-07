@@ -14,7 +14,7 @@
 DECLARE_GLOBAL_DATA_PTR;
 
 #define MAX_BAD_MEMBLK		8
-
+#define LOG_PRINT(fmt,args...)		//	printf(fmt,##args)
 #define BIDRAM_R(fmt, args...)	printf(fmt, ##args)
 #define BIDRAM_I(fmt, args...)	printf("Bidram: "fmt, ##args)
 #define BIDRAM_W(fmt, args...)	printf("Bidram Warn: "fmt, ##args)
@@ -386,6 +386,7 @@ int bidram_reserve_by_name(const char *name,
 
 int bidram_initr(void)
 {
+	LOG_PRINT("%s.%d\n",__FUNCTION__,__LINE__);
 	return !bidram_get_ram_size();
 }
 
@@ -401,18 +402,21 @@ phys_size_t bidram_get_ram_size(void)
 	int bad_cnt = 0, n = 0;
 	char bad_name[12];
 
+	LOG_PRINT("%s.%d\n",__FUNCTION__,__LINE__);
 	parse_fn = board_bidram_parse_fn();
 	if (!parse_fn) {
 		BIDRAM_E("Can't find dram parse fn\n");
 		return 0;
 	}
 
+	LOG_PRINT("%s.%d\n",__FUNCTION__,__LINE__);
 	list = parse_fn(&count);
 	if (!list) {
 		BIDRAM_E("Can't get dram banks\n");
 		return 0;
 	}
 
+	LOG_PRINT("%s.%d\n",__FUNCTION__,__LINE__);
 	if (count > CONFIG_NR_DRAM_BANKS) {
 		BIDRAM_E("Too many dram banks, %d is over max: %d\n",
 			 count, CONFIG_NR_DRAM_BANKS);
@@ -420,10 +424,14 @@ phys_size_t bidram_get_ram_size(void)
 	}
 
 	/* Initial plat_bidram */
+	LOG_PRINT("%s.%d\n",__FUNCTION__,__LINE__);
 	lmb_init(&bidram->lmb);
+
+	LOG_PRINT("%s.%d\n",__FUNCTION__,__LINE__);
 	INIT_LIST_HEAD(&bidram->reserved_head);
 	bidram->has_init = true;
 
+	LOG_PRINT("%s.%d\n",__FUNCTION__,__LINE__);
 	/* Initial memory pool */
 	for (i = 0; i < count; i++) {
 		BIDRAM_D("Add bank[%d] start=0x%08lx, end=0x%08lx\n",
@@ -460,7 +468,7 @@ phys_size_t bidram_get_ram_size(void)
 			}
 		}
 	}
-
+	LOG_PRINT("%s.%d\n",__FUNCTION__,__LINE__);
 	ret = bidram_add(CONFIG_SYS_SDRAM_BASE,
 			 ram_addr_end - CONFIG_SYS_SDRAM_BASE);
 	if (ret) {
@@ -483,6 +491,7 @@ phys_size_t bidram_get_ram_size(void)
 		}
 	}
 
+	LOG_PRINT("%s.%d\n",__FUNCTION__,__LINE__);
 	/* Reserved for board */
 	ret = board_bidram_reserve(bidram);
 	if (ret) {

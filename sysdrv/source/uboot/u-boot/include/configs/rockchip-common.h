@@ -113,6 +113,11 @@
 #else
 #define ROOT_UUID "69DAD710-2CE4-4E3C-B16C-21A1D49ABED3;\0"
 #endif
+#ifdef CONFIG_ROCKCHIP_RV1108
+#define PARTS_DEFAULT "uuid_disk=NONE\0"
+#define PARTS_RKIMG "uuid_disk=NONE\0"
+#define RKIMG_DET_BOOTDEV "rkimg_bootdev=mtd\0"
+#else
 #define PARTS_DEFAULT \
 	"uuid_disk=${uuid_gpt_disk};" \
 	"name=loader1,start=32K,size=4000K,uuid=${uuid_gpt_loader1};" \
@@ -161,7 +166,7 @@
 	"else;" \
 		"setenv devtype ramdisk; setenv devnum 0;" \
 	"fi; \0"
-
+#endif
 #if defined(CONFIG_AVB_VBMETA_PUBLIC_KEY_VALIDATE)
 #define RKIMG_BOOTCOMMAND			\
 	"boot_android ${devtype} ${devnum};"

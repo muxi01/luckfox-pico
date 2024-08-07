@@ -785,8 +785,8 @@ select_ini_file
 handle_args_late
 sub_commands
 clean_files
-# bear -- make PYTHON=python2 CROSS_COMPILE=${TOOLCHAIN} all --jobs=${JOB}
-make PYTHON=python2 CROSS_COMPILE=${TOOLCHAIN} all --jobs=${JOB}
+bear -- make PYTHON=python2 CROSS_COMPILE=${TOOLCHAIN} all --jobs=${JOB}
+# make PYTHON=python2 CROSS_COMPILE=${TOOLCHAIN} all --jobs=${JOB}
 pack_images
 finish
 echo ${TOOLCHAIN}

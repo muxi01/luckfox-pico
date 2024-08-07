@@ -9,7 +9,7 @@
 #include <efi.h>
 
 DECLARE_GLOBAL_DATA_PTR;
-
+#define LOG_PRINT(fmt,args...)		//	printf(fmt,##args)
 #define TICKS_TO_US(ticks)	((ticks) / (COUNTER_FREQUENCY / 1000000))
 #define US_TO_MS(ticks)		((ticks) / 1000)
 #define US_TO_US(ticks)		((ticks) % 1000)
@@ -23,12 +23,13 @@ static inline void call_get_ticks(ulong *ticks) { }
 int initcall_run_list(const init_fnc_t init_sequence[])
 {
 	const init_fnc_t *init_fnc_ptr;
+	int cnt=0;
 	ulong start = 0, end = 0, sum = 0;
 
 	if (!gd->sys_start_tick)
 		gd->sys_start_tick = get_ticks();
 
-	for (init_fnc_ptr = init_sequence; *init_fnc_ptr; ++init_fnc_ptr) {
+	for (init_fnc_ptr = init_sequence,cnt=0; *init_fnc_ptr; ++init_fnc_ptr,cnt++) {
 		unsigned long reloc_ofs = 0;
 		int ret;
 
@@ -37,9 +38,9 @@ int initcall_run_list(const init_fnc_t init_sequence[])
 #ifdef CONFIG_EFI_APP
 		reloc_ofs = (unsigned long)image_base;
 #endif
-		debug("initcall: %p", (char *)*init_fnc_ptr - reloc_ofs);
+		LOG_PRINT("%s.%d.id%d initcall: %p\n",__FUNCTION__,__LINE__,cnt,(char *)*init_fnc_ptr - reloc_ofs);
 		if (gd->flags & GD_FLG_RELOC)
-			debug(" (relocated to %p)\n", (char *)*init_fnc_ptr);
+			LOG_PRINT(" (relocated to %p)\n", (char *)*init_fnc_ptr);
 		else
 			debug("\n");
 		call_get_ticks(&start);

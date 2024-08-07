@@ -312,6 +312,24 @@
 
 #define BOOTENV_DEV(devtypeu, devtypel, instance) \
 	BOOTENV_DEV_##devtypeu(devtypeu, devtypel, instance)
+
+#ifdef CONFIG_ROCKCHIP_RV1108
+#define BOOTENV \
+	"devtype=spinand \0" \
+	"devnum=0 \0"			\
+	"autostart=y        \0" \
+	"init=/sbin/init    \0" \
+	"rootfs=/dev/mmcblk0p6 rootwait rw rootfstype=ext4 \0" \
+	"console=ttyS0,1500000 earlyprintk loglevel=8 \0" \
+	"img_autorun=run setargs img_loading img_booting\0" \
+	"img_fastboot=run setargs fastboot_loading img_booting\0" \
+	"img_booting=bootz ${kernel_addr_r} - ${fdt_addr_r}; \0" \
+	"fastboot_loading=fastboot usb 0; \0" \
+	"img_loading=fatload mmc 0:5 ${kernel_addr_r} /uImage.img; fatload mmc 0:5 ${fdt_addr_r} /uImage.dtb;  \0" \
+	"setargs=setenv bootargs root=${rootfs} console=${console} init=${init}\0" \
+	"bootcmd=run setargs fastboot_loading img_booting\0"
+
+#else 
 #define BOOTENV \
 	BOOTENV_SHARED_HOST \
 	BOOTENV_SHARED_MMC \
@@ -384,7 +402,7 @@
 		"for target in ${boot_targets}; do "                      \
 			"run bootcmd_${target}; "                         \
 		"done\0"
-
+#endif
 #ifndef CONFIG_BOOTCOMMAND
 #define CONFIG_BOOTCOMMAND "run distro_bootcmd"
 #endif

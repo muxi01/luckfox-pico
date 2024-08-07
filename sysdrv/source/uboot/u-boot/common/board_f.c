@@ -42,7 +42,7 @@
 #include <linux/errno.h>
 #include <bidram.h>
 #include <sysmem.h>
-
+#define LOG_PRINT(fmt,args...)		//	printf(fmt,##args)
 /*
  * Pointer to initial global data area
  *
@@ -708,7 +708,9 @@ static int setup_reloc(void)
 	debug("Relocating to %08lx, new gd at %08lx, sp at %08lx\n",
 	      gd->relocaddr, (ulong)map_to_sysmem(gd->new_gd),
 	      gd->start_addr_sp);
-
+		  
+	printf("uboot image addr: 0x%08lx - 0x%08lx\n",(unsigned long)__image_copy_start,(unsigned long)__image_copy_end);
+	printf("finished phase 1\n");
 	return 0;
 }
 
@@ -972,6 +974,7 @@ void board_init_f(ulong boot_flags)
 	gd->flags = boot_flags;
 	gd->have_console = 0;
 
+	LOG_PRINT("%s.%d\n",__FUNCTION__,__LINE__);
 	if (initcall_run_list(init_sequence_f))
 		hang();
 

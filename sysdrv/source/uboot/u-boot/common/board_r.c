@@ -67,7 +67,7 @@
 DECLARE_GLOBAL_DATA_PTR;
 
 ulong monitor_flash_len;
-
+#define LOG_PRINT(fmt,args...)		//	printf(fmt,##args)
 __weak int board_flash_wp_on(void)
 {
 	/*
@@ -269,7 +269,7 @@ static int initr_barrier(void)
 static int initr_malloc(void)
 {
 	ulong malloc_start;
-
+	LOG_PRINT("%s.%d\n",__FUNCTION__,__LINE__);
 #if CONFIG_VAL(SYS_MALLOC_F_LEN)
 	debug("Pre-reloc malloc() used %#lx bytes (%ld KB)\n", gd->malloc_ptr,
 	      gd->malloc_ptr / 1024);
@@ -1093,7 +1093,7 @@ void board_init_r(gd_t *new_gd, ulong dest_addr)
 	for (i = 0; i < ARRAY_SIZE(init_sequence_r); i++)
 		init_sequence_r[i] += gd->reloc_off;
 #endif
-
+	LOG_PRINT("%s.%d\n",__FUNCTION__,__LINE__);
 	if (initcall_run_list(init_sequence_r))
 		hang();
 

@@ -31,7 +31,7 @@ import os,sys,subprocess
 #    6          131136          196574   32.0 MiB    8300  rootfs
 
 PARTIONS_TABLE={
-    "loader1":[64,      8064,   "/dev/none",    "./idbloader_op.img"],
+    "loader1":[64,      8064,   "/dev/none",    "./idblock.bin"],
     "uboot"  :[16384,   24512,  "/dev/none",    "./uboot.img"],
     # "trust"  :[24576,   32704,  "/dev/none",    "./trust.img"],
     # "kernel" :[32768,   131072, "/dev/none",    "./kernel.fat"],
