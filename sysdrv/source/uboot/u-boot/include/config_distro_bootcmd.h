@@ -327,7 +327,8 @@
 	"fastboot_loading=fastboot usb 0; \0" \
 	"img_loading=fatload mmc 0:5 ${kernel_addr_r} /uImage.img; fatload mmc 0:5 ${fdt_addr_r} /uImage.dtb;  \0" \
 	"setargs=setenv bootargs root=${rootfs} console=${console} init=${init}\0" \
-	"bootcmd=run setargs fastboot_loading img_booting\0"
+	"bootcmd0=run setargs fastboot_loading img_booting\0" \
+	"bootcmd=version "
 
 #else 
 #define BOOTENV \

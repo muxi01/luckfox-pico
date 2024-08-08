@@ -81,6 +81,10 @@
 	status = "okay";
 };
 
+&sfc {
+	compatible = "rockchip,rksfc";
+	status = "okay";
+};
 
 &i2c0 {
 	i2c-scl-rising-time-ns = <275>;

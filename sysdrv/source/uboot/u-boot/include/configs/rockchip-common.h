@@ -116,7 +116,7 @@
 #ifdef CONFIG_ROCKCHIP_RV1108
 #define PARTS_DEFAULT "uuid_disk=NONE\0"
 #define PARTS_RKIMG "uuid_disk=NONE\0"
-#define RKIMG_DET_BOOTDEV "rkimg_bootdev=mtd\0"
+#define RKIMG_DET_BOOTDEV "rkimg_bootdev=setenv devtype spinand; setenv devnum 0\0"
 #else
 #define PARTS_DEFAULT \
 	"uuid_disk=${uuid_gpt_disk};" \

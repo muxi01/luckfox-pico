@@ -709,8 +709,7 @@ static int setup_reloc(void)
 	      gd->relocaddr, (ulong)map_to_sysmem(gd->new_gd),
 	      gd->start_addr_sp);
 		  
-	printf("uboot image addr: 0x%08lx - 0x%08lx\n",(unsigned long)__image_copy_start,(unsigned long)__image_copy_end);
-	printf("finished phase 1\n");
+	LOG_PRINT("uboot image addr: 0x%08lx - 0x%08lx\n",(unsigned long)__image_copy_start,(unsigned long)__image_copy_end);
 	return 0;
 }
 
