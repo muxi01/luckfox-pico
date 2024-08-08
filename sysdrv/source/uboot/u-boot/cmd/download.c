@@ -21,15 +21,18 @@ static int do_download(cmd_tbl_t *cmdtp, int flag,
 	do_board_download();
 
 	/* Generic download */
-#ifdef CONFIG_CMD_ROCKUSB
+#ifdef CONFIG_ROCKCHIP_RV1108
+	printf("Direct to maskroom\n");
+#elif defined(CONFIG_CMD_ROCKUSB)
 	run_command("rockusb 0 $devtype $devnum", 0);
-#endif
 	printf("Enter rockusb failed, fallback to bootrom...\n");
+#endif
 	flushc();
 	run_command("rbrom", 0);
 
 	return 0;
 }
+
 
 U_BOOT_CMD_ALWAYS(
 	download, 1, 1, do_download,

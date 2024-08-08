@@ -52,6 +52,19 @@ typedef enum {
 #endif
 } fb_getvar_t;
 
+
+enum oem_mode{
+	OEM_MODE_NORMAL=0ul,
+	OEM_MODE_KERNEL,
+	OEM_MODE_DTB,
+	OEM_MODE_RAMDISK,
+	OEM_MODE_EXIT,
+};
+
+extern enum oem_mode fastboot_oem_mode;
+int fb_copy_images(const char * part, void *buffer, unsigned int  len);
+
+
 void fastboot_fail(const char *reason, char *response);
 void fastboot_okay(const char *reason, char *response);
 

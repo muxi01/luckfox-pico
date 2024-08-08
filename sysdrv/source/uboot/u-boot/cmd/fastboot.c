@@ -14,6 +14,7 @@
 #include <net.h>
 #include <usb.h>
 #include <sysmem.h>
+#include <fastboot.h>
 
 static int do_fastboot(cmd_tbl_t *cmdtp, int flag, int argc, char *const argv[])
 {
@@ -22,6 +23,7 @@ static int do_fastboot(cmd_tbl_t *cmdtp, int flag, int argc, char *const argv[])
 	char *usb_controller;
 	int ret;
 #endif
+	int exit_counter=0;
 	if (argc < 2)
 		return CMD_RET_USAGE;
 
@@ -79,6 +81,11 @@ static int do_fastboot(cmd_tbl_t *cmdtp, int flag, int argc, char *const argv[])
 			break;
 		if (ctrlc())
 			break;
+		if(fastboot_oem_mode == OEM_MODE_EXIT) {
+			if(exit_counter++ > 20){
+				break;
+			}
+		}
 		usb_gadget_handle_interrupts(controller_index);
 	}
 
@@ -89,7 +96,6 @@ exit:
 	g_dnl_unregister();
 	g_dnl_clear_detach();
 	usb_gadget_release(controller_index);
-
 	return ret;
 #endif
 }
@@ -101,4 +107,5 @@ U_BOOT_CMD(
 	" - run as a fastboot usb or udp device\n"
 	"   usb: specify <USB_controller>\n"
 	"   udp: requires ip_addr set and ethernet initialized\n"
+	"   fastboot lock/unlock,write image to ram/emmc\n"
 );
