@@ -9,5 +9,7 @@ CHECK_MASK: 0x80
 KERNEL_IMG: 0x60408000
 PWR_HLD: 0,0,A,0,1
 TYPE: GPT
-CMDLINE:mtdparts=rk29xxnand:0x00004000@0x00002000(uboot),0x00004000@0x00006000(env),0x00020000@0x0000a000(kernel),-@0x0002a000(rootfs:grow)
+#"256K(env),256K@256K(idblock),1M(uboot),10M(boot),30M(oem),10M(userdata),70M(rootfs)"
+CMDLINE:mtdparts=rk29xxnand:0x80000@0x00(idblock),0x100000@0x80000(uboot),0xa00000@0x180000(boot),0x1e00000@0xb80000(oem),0xa00000@0x2980000(userdata),0x4500000@0x3380000(rootfs:grow)
 uuid:rootfs=614e0000-0000-4b53-8000-1d28000054a9
+
