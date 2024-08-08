@@ -521,6 +521,7 @@ function pack_idblock()
 	# pack
 	rm idblock.bin -f
 	./tools/mkimage -n ${PLAT} -T rksd -d ${TPL_BIN}:${SPL_BIN} idblock.bin
+
 	echo "Input:"
 	echo "    ${INI}"
 	echo "    ${TPL_BIN}"
@@ -750,6 +751,12 @@ function clean_files()
 	rm spl/u-boot-spl.dtb tpl/u-boot-tpl.dtb u-boot.dtb -f
 	rm spl/u-boot-spl tpl/u-boot-tpl u-boot -f
 }
+function update_binary()
+{
+	rm -rf  ./download.bin  ./idblock.bin 
+	cp -f ${RKBIN}//bin/rv1108/rv1108_usb_boot_v1.26.bin ./download.bin
+	cp -f ${RKBIN}//bin/rv1108/idblock-origin-0x7ffff.img ./idblock.bin 
+}
 
 function pack_images()
 {
@@ -762,6 +769,7 @@ function pack_images()
 			pack_uboot_image
 			pack_trust_image
 			pack_loader_image
+			update_binary
 		fi
 	fi
 }
